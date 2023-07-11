@@ -1,7 +1,7 @@
 function intersects(event1, event2) {
-    let s1 = event1.start, 
+    let s1 = event1.start,
         e1 = event1.end,
-        s2 = event2.start, 
+        s2 = event2.start,
         e2 = event2.end
     if(!e2 || !e1) { // it's not span
         return false

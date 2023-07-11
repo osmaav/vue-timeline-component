@@ -1,11 +1,11 @@
 export default (config) => selection => {
     let {
-        //showCursor,
+        showCursor = true,
         timeScale,
         height,
     } = config
 
-   // if (!showCursor) return //issue with zoom
+   if (!showCursor) return //issue with zoom
 
     let now = timeScale(Date.now())
 
@@ -22,6 +22,6 @@ export default (config) => selection => {
         .attr('x2', 0)
         .attr('y2', height)
         .attr('stroke', 'red')
-    
+
     cursor.attr('transform', `translate(${now})`)
 }

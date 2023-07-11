@@ -6,18 +6,14 @@ import zoom from './zoom'
 import cursor from './cursor'
 import layout from './layout'
 
-//import { toRoman } from 'roman-numerals'
-
 export default (config) => {
     function init(selection) {
-        console.log('timeline init')
         selection.selectAll('svg').remove()
 
         let data = selection.data()
 
         let events = data[0]
         layout.generate(events)
-        console.table(events)
 
         let {
             viewWidth = 800,
@@ -52,7 +48,7 @@ export default (config) => {
                     .append('g')
                     .classed('graph', true)
                     .attr('transform', `translate(${margin.left},${margin.top})`)
-        
+
         let view = graph.append('g')
             .classed('view', true)
 
@@ -61,7 +57,7 @@ export default (config) => {
             view,
             draw,
         }))
-        
+
         view.call(draw(timeScale, onEventClick, height, showCursor))
     }
 

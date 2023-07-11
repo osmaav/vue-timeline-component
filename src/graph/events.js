@@ -5,14 +5,14 @@ export default config => selection => {
     } = config
 
     let events = selection.selectAll('g.event').data(selection.data()[0][0])
-    
+
     let g = events
         .enter()
         .append('g')
         .classed('event', true)
         .attr('transform', d => `translate(${timeScale(d.start)} ${d.position*22})`)
         .on('click', onEventClick)
-    
+
     g.append('rect')
         .attr('width', d => d.end ? timeScale(d.end)-timeScale(d.start) : 10)
         .attr('height', 20)
@@ -29,11 +29,11 @@ export default config => selection => {
         .attr('transform', d => `translate(${timeScale(d.start)} ${d.position*22})`)
         .selectAll('rect')
         .attr('width', d => d.end ? timeScale(d.end)-timeScale(d.start) : 10)
-    
-    // events
-    //     .exit()
-    //     .on('click', null)
-    //     .remove()
+
+    events
+        .exit()
+        .on('click', null)
+        .remove()
 
 
 }

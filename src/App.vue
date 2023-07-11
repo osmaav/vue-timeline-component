@@ -1,16 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <h3>График загруженности</h3>
+   <vue-timeline :data="events"></vue-timeline>
   </div>
 </template>
 
 <script>
-
+import VueTimeline from "./components/VueTimeline";
+const mounth = 7;
+const year = 2023;
 export default {
   name: 'App',
   components: {
-  }
-}
+    VueTimeline
+  },
+  data() {
+    return {
+      events: [{
+        name: "КИТ АПС",
+        start: Date.now(),
+        end: new Date(year, mounth, 15),
+      }, {
+        name: "КИТ АО",
+        start: Date.now()+1,
+        end: new Date(year, mounth, 10),
+      }, {
+        name: "ОБЪЕКТ СИСТЕМА",
+        start: Date.now()+1,
+        end: new Date(year, mounth, 25),
+      }]
+    };
+  },
+};
 </script>
 
 <style>
