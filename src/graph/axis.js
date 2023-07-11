@@ -16,7 +16,7 @@ function format(date) {
         return d3.timeFormat('%I:%M')(date)
     }
     if (d3.timeMonth(date) < date) {
-        return d3.timeFormat('%B %d')(date)
+        return d3.timeFormat('%b.%d')(date)
     }
     if (d3.timeYear(date) < date) {
         return d3.timeFormat('%B')(date)
